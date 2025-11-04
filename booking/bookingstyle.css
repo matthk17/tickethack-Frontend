@@ -1,0 +1,92 @@
+body {
+    margin : 0;
+    height: 100vh;
+}
+
+#container {
+    background-color: #F3F3F3;
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lien {
+    display: flex;
+    width: 15%;
+    justify-content: flex-end;
+}
+
+.lien {
+    width: 30%;
+    display: flex;
+    margin-right: 3%;
+}
+
+#title {
+    color: #35A087;
+    margin-left: 3%;
+}
+
+
+#cart {
+    height: 50%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#trait {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #101C31;
+    height: 1px;
+    width: 40%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+#delete-button {
+    background-color: #5B9E90;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.trip {
+    background-color: #F7F3F4;
+    width: 80%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.city {
+    display: flex;
+}
+
+.element {
+    margin-left: 5px;
+}
+
+#final-text {
+    margin-bottom: 4%;
+    color: #35A087;
+}
