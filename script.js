@@ -9,3 +9,83 @@
     // - Page cart => Suppression d'un trip
     // - Page booking => Afficher le trip purchase de la page cart
     // - Page booking => Enregistrer le trip booking dans la BDD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const data = {
+//     departure : dep,
+//     arrival : arr,
+//     date: date
+// }
+
+dep = "Marseille"
+arr = "Lyon"
+
+fetch(`http://localhost:3000/trips/search/${dep}/${arr}`, {
+
+    method: 'POST',
+
+    headers: { 'Content-Type': 'application/json' },
+
+})
+ .then(response => response.json())
+ .then(data => {
+   console.log(data);
+ });
+
