@@ -30,19 +30,18 @@ fetch(`http://localhost:3000/trips/search/${dep}/${arr}`, {
 })
  .then(response => response.json())
  .then(data => {
-   console.log(data.filteredTrips[1]);
-   document.querySelector(`#welcomeTrip`).innerHTML +=
+    for (i=0; i<data.filteredTrips.length; i++){
+    const date = new Date (data.filteredTrips[i].date)
+    document.querySelector(`#welcomeTrip`).innerHTML +=
        `<div class="row">                   
            <div class="travels-container">
-               <p class="road">${data.filteredTrips[0].departure} > ${data.filteredTrips[0].arrival} </p>
-               <p class="time">${data.filteredTrips[0].date}</p>
-               <p class="price">${data.filteredTrips[0].price}</p>
+               <p class="road">${data.filteredTrips[i].departure} > ${data.filteredTrips[i].arrival} </p>
+               <p class="time">${date.getHours()} : ${date.getMinutes()}</p>
+               <p class="price">${data.filteredTrips[i].price}€</p>
                <button class="book-button">Book</button>
            </div>
        </div>`
-  })
- });
-
+  }})})
 
 
 
