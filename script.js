@@ -18,10 +18,12 @@ document.querySelector('#searchButton').addEventListener('click', function () {
     document.querySelector(`#txt-welcomeTrip`).remove()
 
 const dep = document.querySelector("#dep").value
-console.log(dep)
 const arr = document.querySelector("#arr").value
+const date = document.querySelector("#date").value
 
-fetch(`http://localhost:3000/trips/search/${dep}/${arr}`, {
+console.log(date)
+
+fetch(`http://localhost:3000/trips/search/${dep}/${arr}/${date}`, {
 
     method: 'POST',
 
@@ -30,7 +32,7 @@ fetch(`http://localhost:3000/trips/search/${dep}/${arr}`, {
 })
  .then(response => response.json())
  .then(data => {
-   console.log(data.filteredTrips[1]);
+   console.log(data.filteredTrips.length);
    document.querySelector(`#welcomeTrip`).innerHTML +=
        `<div class="row">                   
            <div class="travels-container">
