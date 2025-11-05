@@ -23,21 +23,21 @@
             </h3>
         </div>
         <div id="trip">
-            <div id="searchTrip">
+            <form id="searchTrip">
                 <div id="city">
-                    <input id="dep" type="text" placeholder="Departure" />
-                    <input id="arr" type="text" placeholder="Arrival" />
+                    <input id="dep" type="text" placeholder="Departure" required/>
+                    <input id="arr" type="text" placeholder="Arrival" required/>
                 </div>
-                <input id="date" type="date" />
-                <button id="searchButton">Search</button>
+                <input id="date" type="date" required/>
+                <button id="searchButton" type=" submit">Search</button>
+            </form>
+            <div id="foundTrip">
+                <div id="welcome">
+                    <img id="logo" src="images/train.png" />
+                    <div id="formGeo"></div>
+                    <p class="text" id="txt-welcomeTrip">It's time to book your future trip</p>
+                </div>                
             </div>
-            <div id="welcomeTrip">
-                <img id="logo" src="images/train.png" />
-                <div id="formGeo"></div>
-                <p class="text" id="txt-welcomeTrip">It's time to book your future trip</p>
-                
-            </div>
-
         </div>
     </div>
 
