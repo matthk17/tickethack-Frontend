@@ -10,16 +10,16 @@
 // - Page booking => Afficher le trip purchase de la page cart
 // - Page booking => Enregistrer le trip booking dans la BDD
 
-
+ let cliqueDetecte = false
 
 document.querySelector('#searchButton').addEventListener('click', function () {
     document.querySelector(`#logo`).remove()
     document.querySelector(`#formGeo`).remove()
     document.querySelector(`#txt-welcomeTrip`).remove()
 
-const dep = document.querySelector("#dep").value
-const arr = document.querySelector("#arr").value
-const date = document.querySelector("#date").value
+let dep = document.querySelector("#dep").value
+let arr = document.querySelector("#arr").value
+let date = document.querySelector("#date").value
 
 console.log(date)
 
@@ -32,22 +32,47 @@ fetch(`http://localhost:3000/trips/search/${dep}/${arr}/${date}`, {
 })
  .then(response => response.json())
  .then(data => {
-   console.log(data.filteredTrips.length);
-   document.querySelector(`#welcomeTrip`).innerHTML +=
+    console.log(data)
+    for (i=0; i<data.filteredTrips.length; i++){
+    const date = new Date (data.filteredTrips[i].date)
+    document.querySelector(`#welcomeTrip`).innerHTML +=
        `<div class="row">                   
            <div class="travels-container">
-               <p class="road">${data.filteredTrips[0].departure} > ${data.filteredTrips[0].arrival} </p>
-               <p class="time">${data.filteredTrips[0].date}</p>
-               <p class="price">${data.filteredTrips[0].price}</p>
+               <p class="road">${data.filteredTrips[i].departure} > ${data.filteredTrips[i].arrival} </p>
+               <p class="time">${date.getHours()} : ${date.getMinutes()}</p>
+               <p class="price">${data.filteredTrips[i].price}€</p>
                <button class="book-button">Book</button>
            </div>
        </div>`
-  })
- });
+
+         }
+
+         detecteClick ()
+
+        }
+    )})
 
 
+  function detecteClick () {
+  
+const allBookButton = document.querySelectorAll('.book-button')
 
+for (let i=0; i<allBookButton.length; i++) {
+        allBookButton[i].addEventListener('click', 
+            function () {
+        const parentElement = this.parentNode
+        const price = parentElement.querySelector(".price").textContent
+    
+                
+        
+        fetch(`http://localhost:3000/cart/add/${dep}/${arr}/${date}/${price}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log("new trip add in cart")
+    });
 
-
-
-
+})
+  }}
