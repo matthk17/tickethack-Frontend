@@ -51,8 +51,8 @@ document.querySelector('#searchTrip').addEventListener('submit', function (event
                     <div id="formGeo"></div>
                     <p class="text" id="txt-welcomeTrip">Trip not found</p>`;
             }
+            detecteClick ()
         })
-        detecteClick ()
 })
 
 
